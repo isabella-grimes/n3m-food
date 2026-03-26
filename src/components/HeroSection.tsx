@@ -32,15 +32,6 @@ export default function HeroSection({ scrollY }: HeroSectionProps) {
       </div>
 
       <div className="hero-content">
-        <div className="floating-food">
-          <img
-            src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="Floating burger"
-            className="float-anim"
-            style={{ animationDelay: '0s' }}
-          />
-        </div>
-
         <div className="hero-text">
           <h1 className="hero-title">
             Cook. Share. Earn. <br />
