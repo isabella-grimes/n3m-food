@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import { LanguageProvider } from './context/LanguageContext';
 import HeroSection from './components/HeroSection';
 import HowItWorks from './components/HowItWorks';
 import Marquee from './components/Marquee';
 import Footer from './components/Footer';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -18,12 +20,15 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <HeroSection scrollY={scrollY} />
-      <HowItWorks />
-      <Marquee />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="app">
+        <LanguageSwitcher />
+        <HeroSection scrollY={scrollY} />
+        <HowItWorks />
+        <Marquee />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

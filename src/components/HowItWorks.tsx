@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './HowItWorks.css';
 
 interface Step {
@@ -29,6 +30,7 @@ const steps: Step[] = [
 ];
 
 export default function HowItWorks() {
+  const { t } = useLanguage();
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -59,7 +61,7 @@ export default function HowItWorks() {
   return (
     <section className="how-it-works">
       <div className="container">
-        <h2 className="section-title">How It Works</h2>
+        <h2 className="section-title">{t('how-it-works.title')}</h2>
 
         <div className="steps">
           {steps.map((step, index) => (

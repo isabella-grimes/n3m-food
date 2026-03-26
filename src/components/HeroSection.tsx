@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './HeroSection.css';
 
 interface HeroSectionProps {
@@ -7,6 +8,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ scrollY }: HeroSectionProps) {
   const [email, setEmail] = useState('');
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,26 +36,24 @@ export default function HeroSection({ scrollY }: HeroSectionProps) {
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
-            Cook. Share. Earn. <br />
-            <span className="gradient-text">Welcome to N3M.</span>
+            {t('hero.title')} <br />
+            <span className="gradient-text">{t('hero.subtitle')}</span>
           </h1>
           <p className="hero-subtitle">
-            The ultimate short-video app that turns your home kitchen into a profitable cloud kitchen.
-            Share your culinary passion, build your audience, and let us handle the delivery.
-            Your dream restaurant starts at home.
+            {t('hero.description')}
           </p>
 
           <form onSubmit={handleSubmit} className="email-form">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder={t('hero.email-placeholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="email-input"
             />
             <button type="submit" className="cta-button">
-              Join the Chef Waitlist
+              {t('hero.cta-button')}
             </button>
           </form>
         </div>
